@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encriptador Alura Challenge</title>
+    <link rel="stylesheet" href="style/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <img class="alura-logo" src="assets/Logo.png" alt="Logo">
+        </nav>
+    </header>
+    <main>
+        <section class="left-section">
+            <!-- <h1>Ingrese el texto aquí</h1> -->
+            <textarea id="inputTexto" class="input_texto_derecha" placeholder="Ingrese texto aquí"></textarea>
+            <div class="contenedor_botones">
+                <button type="button" class="boton_ed_e" onclick="encriptar()">Encriptar</button>
+                <button type="button" class="boton_ed_d" onclick="desencriptar()">Desencriptar</button>
+            </div>
+            <p class="note">Solo letras minúsculas y sin acentos</p>
+        </section>
+        <section class="right-section">
+            <div class="output-container" id="outputContainer">
+                <textarea id="outputTexto" class="input_texto_izquierda" readonly></textarea>
+                <div id="imageContainer" class="image-container">
+                    <img src="assets/Muñeco.png" alt="Muñeco">
+                    <p>Ningún mensaje fue encontrado</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer></footer>
+    <script src="script/script.js"></script>
+</body>
+</html>
