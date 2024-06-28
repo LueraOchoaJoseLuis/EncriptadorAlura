@@ -1,27 +1,59 @@
-// script/script.js
-
 function encriptar() {
-    const inputTexto = document.getElementById('inputTexto').value;
-    if (inputTexto.trim() !== "") {
-        document.getElementById('imageContainer').style.display = 'none';
-        document.getElementById('outputTexto').value = encriptarTexto(inputTexto);
+    const textoEntrada = document.getElementById('textoEntrada').value;
+    if (textoEntrada.trim() !== "") {
+        document.getElementById('contenedorImagen').style.display = 'none';
+        document.getElementById('textoSalida').value = encriptarTexto(textoEntrada);
+        document.getElementById('botonCopiar').style.display = 'block'; 
     }
 }
 
 function desencriptar() {
-    const inputTexto = document.getElementById('inputTexto').value;
-    if (inputTexto.trim() !== "") {
-        document.getElementById('imageContainer').style.display = 'none';
-        document.getElementById('outputTexto').value = desencriptarTexto(inputTexto);
+    const textoEntrada = document.getElementById('textoEntrada').value;
+    if (textoEntrada.trim() !== "") {
+        document.getElementById('contenedorImagen').style.display = 'none';
+        document.getElementById('textoSalida').value = desencriptarTexto(textoEntrada);
+        document.getElementById('botonCopiar').style.display = 'block'; 
     }
 }
 
 function encriptarTexto(texto) {
-    // Aquí puedes agregar tu lógica de encriptación
-    return texto.split('').reverse().join('');
+    const reglas = [
+        { letra: "e", codigo: "enter" },
+        { letra: "i", codigo: "imes" },
+        { letra: "a", codigo: "ai" },
+        { letra: "o", codigo: "ober" },
+        { letra: "u", codigo: "ufat" }
+    ];
+    
+    texto = texto.toLowerCase();
+
+    reglas.forEach(regla => {
+        texto = texto.replaceAll(regla.letra, regla.codigo);
+    });
+
+    return texto;
 }
 
 function desencriptarTexto(texto) {
-    // Aquí puedes agregar tu lógica de desencriptación
-    return texto.split('').reverse().join('');
+    const reglas = [
+        { letra: "e", codigo: "enter" },
+        { letra: "i", codigo: "imes" },
+        { letra: "a", codigo: "ai" },
+        { letra: "o", codigo: "ober" },
+        { letra: "u", codigo: "ufat" }
+    ];
+    
+    texto = texto.toLowerCase();
+
+    reglas.forEach(regla => {
+        texto = texto.replaceAll(regla.codigo, regla.letra);
+    });
+
+    return texto;
+}
+
+function copiarTexto() {
+    const textoSalida = document.getElementById('textoSalida');
+    textoSalida.select();
+    document.execCommand('copy');
 }

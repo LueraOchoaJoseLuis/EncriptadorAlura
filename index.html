@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,26 +9,29 @@
 <body>
     <header>
         <nav>
-            <img class="alura-logo" src="assets/Logo.png" alt="Logo">
+            <img class="logo-alura" src="assets/Logo.png" alt="Logo">
         </nav>
     </header>
     <main>
-        <section class="left-section">
-            <!-- <h1>Ingrese el texto aquí</h1> -->
-            <textarea id="inputTexto" class="input_texto_derecha" placeholder="Ingrese texto aquí"></textarea>
-            <div class="contenedor_botones">
-                <button type="button" class="boton_ed_e" onclick="encriptar()">Encriptar</button>
-                <button type="button" class="boton_ed_d" onclick="desencriptar()">Desencriptar</button>
+        <section class="seccion-izquierda">
+            <textarea id="textoEntrada" class="texto-entrada-izquierda" placeholder="Ingrese texto aquí"></textarea>
+            <p class="nota">Solo letras minúsculas y sin acentos</p>
+            <br>
+            <div class="contenedor-botones">
+                <button type="button" class="boton-encriptar" onclick="encriptar()">Encriptar</button>
+                <button type="button" class="boton-desencriptar" onclick="desencriptar()">Desencriptar</button>
             </div>
-            <p class="note">Solo letras minúsculas y sin acentos</p>
         </section>
-        <section class="right-section">
-            <div class="output-container" id="outputContainer">
-                <textarea id="outputTexto" class="input_texto_izquierda" readonly></textarea>
-                <div id="imageContainer" class="image-container">
+        <section class="seccion-derecha">
+            <div class="contenedor-salida" id="contenedorSalida">
+                <textarea id="textoSalida" class="texto-salida-derecha" readonly></textarea>
+                <div id="contenedorImagen" class="contenedor-imagen">
                     <img src="assets/Muñeco.png" alt="Muñeco">
                     <p>Ningún mensaje fue encontrado</p>
                 </div>
+            </div>
+            <div class="contenedor-boton-copiar">
+                <button id="botonCopiar" class="boton-copiar" onclick="copiarTexto()" style="display: none;">Copiar</button>
             </div>
         </section>
     </main>
