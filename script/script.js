@@ -1,3 +1,14 @@
+document.getElementById('textoEntrada').addEventListener('input', validarMinusculas);
+
+function validarMinusculas(event) {
+    const textarea = event.target;
+    const valor = textarea.value;
+    const nuevoValor = valor.replace(/[^a-z\s]/g, '').toLowerCase(); 
+    if (valor !== nuevoValor) {
+        textarea.value = nuevoValor;
+    }
+}
+
 function encriptar() {
     const textoEntrada = document.getElementById('textoEntrada').value;
     if (textoEntrada.trim() !== "") {
@@ -12,7 +23,7 @@ function desencriptar() {
     if (textoEntrada.trim() !== "") {
         document.getElementById('contenedorImagen').style.display = 'none';
         document.getElementById('textoSalida').value = desencriptarTexto(textoEntrada);
-        document.getElementById('botonCopiar').style.display = 'block'; 
+        document.getElementId('botonCopiar').style.display = 'block'; 
     }
 }
 
